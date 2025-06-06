@@ -43,10 +43,11 @@ LANGUAGE = ["zh", "en", "ko", "ja"]
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser()
     argparser.add_argument(
-        "--port", type=int, default=7860, help="The port number of the server"
+        "--port", type=int, default=int(os.getenv("PORT", 10000)),
+        help="The port number of the server"
     )
     argparser.add_argument(
-        "--host", type=str, default="127.0.0.1", help="The host of the server"
+        "--host", type=str, default="0.0.0.0", help="The host of the server"
     )
     argparser.add_argument(
         "--root_path",
